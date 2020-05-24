@@ -1,0 +1,14 @@
+read myId:int
+gameloop
+read opponentMoveLength:int
+read opponentMove:string(100)
+write 0
+
+STATEMENT
+To score a goal!
+
+INPUT
+opponentMove: Your opponent's last move (or '-' if you are first player and this is first turn)
+
+OUTPUT
+Your move

@@ -1,0 +1,158 @@
+<div class="statement-body">
+   <!-- GOAL --> 
+   <div class="statement-section statement-goal"> 
+     <h2> 
+       <span class="icon icon-goal">&nbsp;</span> 
+       <span>The Goal</span> 
+     </h2> 
+     <div class="statement-goal-content">
+       Paper soccer is a paper-and-pencil game played on a grid representing football pitch. The objective of the game is to score a goal. The detailed rules can be found <a href="https://en.wikipedia.org/wiki/Paper_soccer">HERE</a>.
+     </div>
+   </div> 
+   <!-- RULES --> 
+   <div class="statement-section statement-rules"> 
+     <h2> 
+       <span class="icon icon-rules">&nbsp;</span> 
+       <span>Rules</span> 
+     </h2> 
+     <div class="statement-rules-content">
+         <strong>Pitch:</strong><br>
+         The pitch is drawn on a grid as a rectangle, with small rectangles at the top and the bottom representing the two goals. The ball is represented as a dot and is placed at the center. The typical size of pitch is 8x10 meaning 8 squares wide and 10 squares high.
+         <br><br>
+         <strong>The initial state of the pitch is shown below:</strong>
+         <br><br>
+         <p style="text-align: center;"><img src="https://i.imgur.com/aL4trJv.png" style="height: 390px; width: auto;" /></p>
+         <br><br>
+         <strong>Turn:</strong><br>
+         Paper soccer is a turn-based game. Each player move the ball by drawing line from its current position to a new one. Player can move horizontally, vertically or diagonally by one square. Player can't move on already drawn line as well the pitch's lines.
+         <br><br>
+         <strong>On the left: Game after first player move. On the right: The situation after second player move:</strong>
+         <br><br>
+         <p style="text-align: center;"><img src="https://i.imgur.com/hiZn3nr.png" style="height: 390px; width: auto;" /></p>
+         <br><br>
+         In addition, if the ball is moved to a point which is the end of already drawn line, the ball "bounces" and player makes an additional move in his turn. Player makes additional moves until ball ends up in a position without any drawn lines (except for the just drawn line by the player).<br><br>
+         <strong>Example: After player moves by one square, the ball is at the end of already drawn line. The same player must make additional move.</strong>
+         <br><br>
+         <p style="text-align: center;"><img src="https://i.imgur.com/AKKIfNf.png" style="height: 390px; width: auto;" /></p>
+         <br><br>
+         <strong>Winning and losing:</strong><br>
+         Player wins the game by placing the ball in the opponent's goal. Player loses if he places ball in his own goal. Player also loses if after his turn the ball cannot be moved. First player must reach the top goal. Second player must reach the bottom goal.<br><br>
+         <strong>On the left: Player wins by placing ball in opponent's goal; On the right: After player's turn, ball cannot be moved. Ball is blocked, the player lost.</strong>
+         <br><br>
+         <p style="text-align: center;"><img src="https://i.imgur.com/kdQWxCZ.png" style="height: 390px; width: auto;" /></p>
+         <br><br>
+         Player also loses by providing unrecognizable or invalid input:
+         <ul>
+            <li>Invalid characters in the input</li>
+            <li>Trying to draw on already drawn line</li>
+            <li>Trying to make additional line after the ball ended up on empty intersection, or one of the goals</li>
+            <li>Trying to move outside the pitch's boundaries</li>
+            <li>Ending the move too early when the ball is still at the end of already drawn line</li>
+         </ul>
+         <br>
+         <strong>Output</strong>
+         <br><br>
+         Move is represented as digits, each digit represents direction:<br>
+         0 - N<br>
+         1 - NE<br>
+         2 - E<br>
+         3 - SE<br>
+         4 - S<br>
+         5 - SW<br>
+         6 - W<br>
+         7 - NW<br>
+         <br>
+         <strong>Picture:</strong>
+         <p><img src="https://i.imgur.com/oFddZJ4.png" style="height: 181px; width: auto;" /></p>
+         Player will provide output in the form of string of digits. For example, <b>2</b> will move the ball to the right. String <b>4644</b> will move ball down, then left, then down and down.
+         <br><br>
+         <strong>Example of simple moves. First player writes "7", then second player writes "4":</strong>
+         <br><br>
+         <p style="text-align: center;"><img src="https://i.imgur.com/hiZn3nr.png" style="height: 390px; width: auto;" /></p>
+         <br><br>
+         <strong>Examples for moves with bounces. On the left player writes "35". On the right player writes "02217":</strong>
+         <br><br>
+         <p style="text-align: center;"><img src="https://i.imgur.com/T1KNuge.png" style="height: 390px; width: auto;" /></p>
+     </div> 
+   </div>
+   
+       <!-- Victory conditions -->
+    <div class="statement-victory-conditions">
+        <div class="icon victory"></div>
+        <div class="blk">
+            <div class="title">Victory Conditions</div>
+            <div class="text">
+                <ul style="padding-bottom: 0;">
+                    <li>
+                    Score a goal by placing ball in opponent's goal.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lose conditions -->
+    <div class="statement-lose-conditions">
+        <div class="icon lose"></div>
+        <div class="blk">
+            <div class="title">Loss Conditions</div>
+            <div class="text">
+                <ul style="padding-bottom: 0;">
+                    <li>
+                    Opponent places ball in your goal.
+                    </li>
+                    <li>
+                    After your turn ball can't be moved (the ball is stuck).
+                    </li>
+                    <li>
+                    You output illegal move or an unrecognized command.
+                    </li>
+                    <li>
+                    You do not respond in time
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+       <!-- PROTOCOL -->
+    <div class="statement-section statement-protocol">
+        <h1>
+        <span class="icon icon-protocol">&nbsp;</span>
+        <span>Game Input</span>
+    </h1>
+
+    <!-- Protocol block -->
+    <div class="blk">
+        <div class="title">Initial input</div>
+        <div class="text">
+            <span class="statement-lineno">First line</span>: The id of the player (<var>myId</var>). 0 for first player, 1 for the second player.
+        </div>
+        <div class="title">Input for one game turn</div>
+        <div class="text">
+            <span class="statement-lineno">First line</span>: <var>opponentMoveLength</var>: the length of opponent's last move.
+            <br>
+            <span class="statement-lineno">Next <var>opponentMove</var></span>: characters representing opponent's last move.
+            <br>
+        </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+        <div class="title">Output</div>
+        <div class="text">
+            <span class="statement-lineno">A single line</span> containing the movement, i.e. "024" to move up, right, then down.
+        <br>
+        </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+        <div class="title">Constraints</div>
+        Response time first turn is ≤
+        <const>1000</const> ms.
+        <br>Response time per turn is ≤
+        <const>200</const> ms.
+        </div>
+    </div>
+</div>
